@@ -1,0 +1,8 @@
+# ninja log v5
+1	24	1715513943541658395	treeman_autogen/timestamp	1d01ea0405a552af
+1	24	1715513943541658395	treeman_autogen/mocs_compilation.cpp	1d01ea0405a552af
+1	24	1715513943541658395	/home/near/CLionProjects/treeman/cmake-build-debug/treeman_autogen/timestamp	1d01ea0405a552af
+1	24	1715513943541658395	/home/near/CLionProjects/treeman/cmake-build-debug/treeman_autogen/mocs_compilation.cpp	1d01ea0405a552af
+24	38	1715513943561658395	CMakeFiles/treeman.dir/treeman_autogen/mocs_compilation.cpp.o	a946ce4c9651f1cd
+24	1565	1715513945081658447	CMakeFiles/treeman.dir/main.cpp.o	916a5a6724ff1a48
+1566	2054	1715513945571658464	treeman	ab8a3852e01753ba

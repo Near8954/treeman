@@ -1,0 +1,5 @@
+/home/near/CLionProjects/treeman/cmake-build-debug/CMakeFiles/treeman.dir
+/home/near/CLionProjects/treeman/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/near/CLionProjects/treeman/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/near/CLionProjects/treeman/cmake-build-debug/CMakeFiles/treeman_autogen_timestamp_deps.dir
+/home/near/CLionProjects/treeman/cmake-build-debug/CMakeFiles/treeman_autogen.dir

@@ -1,0 +1,78 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.28"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "treeman",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "treeman::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-treeman-Debug-8ffc782a6c55dfbb50eb.json",
+					"name" : "treeman",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "treeman_autogen::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-treeman_autogen-Debug-684e0128a598a989f59f.json",
+					"name" : "treeman_autogen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "treeman_autogen_timestamp_deps::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-treeman_autogen_timestamp_deps-Debug-fe8b62ff5244b4e97916.json",
+					"name" : "treeman_autogen_timestamp_deps",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/near/CLionProjects/treeman/cmake-build-debug",
+		"source" : "/home/near/CLionProjects/treeman"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 6
+	}
+}
