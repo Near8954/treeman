@@ -13,7 +13,12 @@ find_package(Qt5 COMPONENTS
         Widgets
         REQUIRED)
 
-add_executable(treeman main.cpp)
+add_executable(treeman main.cpp
+        src/interface/App/App.cpp
+        src/interface/App/App.h
+        src/interface/Canvas/Canvas.cpp
+        src/interface/Canvas/Canvas.h
+        src/trees/Node.h)
 target_link_libraries(treeman
         Qt5::Core
         Qt5::Gui
