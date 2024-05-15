@@ -80,6 +80,12 @@
 	"HEADERS" : 
 	[
 		[
+			"/home/near/CLionProjects/treeman/src/header.h",
+			"MU",
+			"UVLADIE3JM/moc_header.cpp",
+			null
+		],
+		[
 			"/home/near/CLionProjects/treeman/src/interface/App/App.h",
 			"MU",
 			"ZCKQ6REYKU/moc_App.cpp",
@@ -92,9 +98,27 @@
 			null
 		],
 		[
+			"/home/near/CLionProjects/treeman/src/trees/AvlTree/AvlTree.h",
+			"MU",
+			"5GYHWZWJKO/moc_AvlTree.cpp",
+			null
+		],
+		[
+			"/home/near/CLionProjects/treeman/src/trees/CartesianTree/CartesianTree.h",
+			"MU",
+			"LRCLSBCOCA/moc_CartesianTree.cpp",
+			null
+		],
+		[
 			"/home/near/CLionProjects/treeman/src/trees/Node.h",
 			"MU",
 			"22XC24QNNB/moc_Node.cpp",
+			null
+		],
+		[
+			"/home/near/CLionProjects/treeman/src/trees/SplayTree/SplayTree.h",
+			"MU",
+			"JHEXESI7G5/moc_SplayTree.cpp",
 			null
 		]
 	],
@@ -157,6 +181,21 @@
 		],
 		[
 			"/home/near/CLionProjects/treeman/src/interface/Canvas/Canvas.cpp",
+			"MU",
+			null
+		],
+		[
+			"/home/near/CLionProjects/treeman/src/trees/AvlTree/AvlTree.cpp",
+			"MU",
+			null
+		],
+		[
+			"/home/near/CLionProjects/treeman/src/trees/CartesianTree/CartesianTree.cpp",
+			"MU",
+			null
+		],
+		[
+			"/home/near/CLionProjects/treeman/src/trees/SplayTree/SplayTree.cpp",
 			"MU",
 			null
 		]
