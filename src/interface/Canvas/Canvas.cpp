@@ -51,6 +51,8 @@ void Canvas::DrawCartesianTree(int64_t x, int64_t y, CartesianNode *T) {
         scene->addLine(x + 40, y + 40, x - (get_size(T->left->right) * 100 + 80) + 40, y + 100 + 40);
         DrawCartesianTree(x - (get_size(T->left->right) * 100 + 80), y + 100, T->left);
     }
+    T->x = x;
+    T->y = y;
     DrawCartesianNode(x, y, T);
 }
 
@@ -73,6 +75,8 @@ void Canvas::DrawSplayTree(int64_t x, int64_t y, Node *T) {
         scene->addLine(x + 40, y + 40, x - (get_size(T->left->right) * 100 + 80) + 40, y + 100 + 40);
         DrawSplayTree(x - (get_size(T->left->right) * 100 + 80), y + 100, T->left);
     }
+    T->x = x;
+    T->y = y;
     DrawSplayNode(x, y, T);
 }
 
@@ -129,6 +133,8 @@ void Canvas::DrawAVLTree(int64_t x, int64_t y, Node *T) {
         scene->addLine(x + 40, y + 40, x - (get_size(T->left->right) * 100 + 80) + 40, y + 100 + 40);
         DrawAVLTree(x - (get_size(T->left->right) * 100 + 80), y + 100, T->left);
     }
+    T->x = x;
+    T->y = y;
     DrawAVLNode(x, y, T);
 }
 

@@ -17,7 +17,7 @@ public:
 
     Node *search(int64_t key);
 
-    Node* find(int x, int y);
+    Node *find(int x, int y);
 
     Node *get_root() {
         return root;
@@ -26,13 +26,13 @@ public:
 private:
     Node *root;
 
-    Node *insert(Node *node, int64_t key);
+    Node *insert(Node *&node, int64_t key);
 
-    Node *remove(Node *root, int64_t key);
+    Node *remove(Node *&root, int64_t key);
 
-    Node *search(Node *node, int64_t key);
+    Node *search(Node *&node, int64_t key);
 
-    Node* find(Node* node, int x, int y);
+    Node *find(Node *&node, int x, int y);
 };
 
 #endif //TREEMAN_AVLTREE_H

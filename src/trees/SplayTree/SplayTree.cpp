@@ -260,9 +260,14 @@ void del_splay(Node *&t, int64_t num) {
     delete tmp;
 }
 
-Node* find(Node *t, int x, int y) {
-    if (t == nullptr) return nullptr;
-    if (t->x == x) return t;
-    if (t->x > x) return find(t->left, x, y);
-    return find(t->right, x, y);
+Node* find(Node *node, int x, int y) {
+    if (node == nullptr || ((node->x <= x) && (x <= node->x + 80) && node->y <= y && y <= node->y + 80)) {
+        return node;
+    }
+    if (node->x < x) {
+        return find(node->right, x, y);
+    }
+    if (node->x > x) {
+        return find(node->left, x, y);
+    }
 }

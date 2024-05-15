@@ -12,7 +12,7 @@ struct Node {
         parent = nullptr;
     }
 
-    explicit Node(int x) {
+    explicit Node(int64_t x) {
         val = x;
         left = nullptr;
         right = nullptr;

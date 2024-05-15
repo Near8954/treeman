@@ -201,27 +201,29 @@ void App::addNodes() {
 
 void App::deleteNode(int x, int y) {
     if (avl_screen_active_) {
-        Node* node = Avl_tree_->find(x, y);
+        Node *node = Avl_tree_->find(x, y);
         if (!node) {
             return;
         }
         int64_t key = node->val;
-        if (key != -1) {
-            Avl_tree_->remove(key);
-            avl_canvas_->DrawAVLTree(Avl_tree_);
-        }
+        Avl_tree_->remove(key);
+        avl_canvas_->DrawAVLTree(Avl_tree_);
     } else if (cartesian_screen_active_) {
-        int64_t key = Cartesian_tree_->find(x, y)->val;
-        if (key != -1) {
-            Cartesian_tree_->remove(key);
-            cartesian_canvas_->DrawCartesianTree(Cartesian_tree_);
+        CartesianNode* node = Cartesian_tree_->find(x, y);
+        if (!node) {
+            return;
         }
+        int64_t key = node->val;
+        Cartesian_tree_->remove(key);
+        cartesian_canvas_->DrawCartesianTree(Cartesian_tree_);
     } else if (splay_screen_active_) {
-        int64_t key = ::find(Splay_tree_, x, y)->val;
-        if (key != -1) {
-            del_splay(Splay_tree_, key);
-            splay_canvas_->DrawSplayTree(Splay_tree_);
+        Node* node = ::find(Splay_tree_, x, y);
+        if (!node) {
+            return;
         }
+        int64_t key = node->val;
+        del_splay(Splay_tree_, key);
+        splay_canvas_->DrawSplayTree(Splay_tree_);
     } else if (rb_screen_active_) {
 
     }

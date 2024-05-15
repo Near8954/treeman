@@ -24,13 +24,15 @@ CartesianNode *CartesianTree::find(int x, int y) {
     return find(root, x, y);
 }
 
-CartesianNode *CartesianTree::find(CartesianNode *root, int x, int y) {
-    if (root == nullptr || root->x == x && root->y == y) {
-        return root;
+CartesianNode *CartesianTree::find(CartesianNode *node, int x, int y) {
+    if (node == nullptr || ((node->x <= x) && (x <= node->x + 80) && node->y <= y && y <= node->y + 80)) {
+        return node;
     }
-    if (root->x > x) {
-        return find(root->left, x, y);
+    if (node->x < x) {
+        return find(node->right, x, y);
     }
-    return find(root->right, x, y);
+    if (node->x > x) {
+        return find(node->left, x, y);
+    }
 }
 
