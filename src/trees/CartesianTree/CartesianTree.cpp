@@ -1,5 +1,5 @@
 #include "CartesianTree.h"
-std::mt19937 rnd(47);
+std::mt19937 rnd(time(nullptr));
 
 
 CartesianNode::CartesianNode(int64_t key): priority(rnd()), val(key), left(nullptr), right(nullptr), size(1) { }

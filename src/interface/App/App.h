@@ -29,12 +29,18 @@ public slots:
 
     void addNodes();
 
+    void addNode();
+
     void deleteNode(int x, int y);
 
 protected:
     void keyPressEvent(QKeyEvent *event) override;
 
 private:
+    void zoomIn();
+
+    void zoomOut();
+
     QLabel *rb_screen_;
 
     bool rb_screen_active_;
@@ -67,7 +73,11 @@ private:
 
     AvlTree *Avl_tree_ = nullptr;
 
+    RBTree *Rb_tree_ = nullptr;
+
     QLineEdit *line_edit_;
+
+    QLineEdit *line_edit_2_;
 
     qreal scale = 1;
 };

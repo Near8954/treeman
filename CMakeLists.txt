@@ -26,6 +26,8 @@ add_executable(treeman main.cpp
         src/trees/SplayTree/SplayTree.cpp
         src/trees/AvlTree/AvlTree.cpp
         src/trees/AvlTree/AvlTree.h
+        src/trees/RBTree/RBTree.cpp
+        src/trees/RBTree/RBTree.h
 )
 target_link_libraries(treeman
         Qt5::Core

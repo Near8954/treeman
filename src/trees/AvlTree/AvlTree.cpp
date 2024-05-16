@@ -43,10 +43,10 @@ Node *balance(Node *&p) // балансировка узла p
             p->left = left_rotate(p->left);
         return rotate_right(p);
     }
-    return p; // балансировка не нужна
+    return p;
 }
 
-Node *AvlTree::insert(Node *&p, int64_t k) // вставка ключа k в дерево с корнем p
+Node *AvlTree::insert(Node *&p, int64_t k)
 {
     if (!p) return new Node(k);
     if (k < p->val)
@@ -100,15 +100,10 @@ void AvlTree::remove(int64_t key) {
 }
 
 Node *AvlTree::search(Node *&node, int64_t key) {
-    // Base Cases: root is null or key is present at root
     if (node == nullptr || node->val == key)
         return node;
-
-    // Key is greater than root's key
     if (node->val < key)
         return search(node->right, key);
-
-    // Key is smaller than root's key
     return search(node->left, key);
 }
 

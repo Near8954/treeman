@@ -64,12 +64,22 @@ App::App() {
     auto confirm_btn = new QPushButton("Confirm", settings_);
     confirm_btn->move(360, 4 * buttonHeight + 4 * spacing);
     confirm_btn->resize(140, 30);
+    auto line_edit_2 = new QLineEdit(settings_);
+    line_edit_2->move(0, 5 * buttonHeight + 5 * spacing);
+    line_edit_2->setFixedSize(350, 30);
+    auto label_2 = new QLabel("Input node key:", settings_);
+    label_2->move(0, 5 * buttonHeight + 4 * spacing);
+    auto confirm_btn_2 = new QPushButton("Confirm", settings_);
+    confirm_btn_2->move(360, 5 * buttonHeight + 5 * spacing);
+    confirm_btn_2->resize(140, 30);
+    line_edit_2_ = line_edit_2;
 
     connect(avl_btn, SIGNAL(clicked()), this, SLOT(setAvlScreen()));
     connect(rb_btn, SIGNAL(clicked()), this, SLOT(setRbScreen()));
     connect(splay_btn, SIGNAL(clicked()), this, SLOT(setSplayScreen()));
     connect(cartesian_btn, SIGNAL(clicked()), this, SLOT(setCartesianScreen()));
     connect(confirm_btn, SIGNAL(clicked()), this, SLOT(addNodes()));
+    connect(confirm_btn_2, SIGNAL(clicked()), this, SLOT(addNode()));
 
     avl_btn->setFixedSize(buttonWidth, buttonHeight);
     rb_btn->setFixedSize(buttonWidth, buttonHeight);
@@ -90,6 +100,22 @@ App::App() {
 
 }
 
+void App::zoomIn() {
+    scale *= 1.2;
+    rb_canvas_->scale(1.2, 1.2);
+    avl_canvas_->scale(1.2, 1.2);
+    splay_canvas_->scale(1.2, 1.2);
+    cartesian_canvas_->scale(1.2, 1.2);
+}
+
+void App::zoomOut() {
+    scale /= 1.2;
+    rb_canvas_->scale(1 / 1.2, 1 / 1.2);
+    avl_canvas_->scale(1 / 1.2, 1 / 1.2);
+    splay_canvas_->scale(1 / 1.2, 1 / 1.2);
+    cartesian_canvas_->scale(1 / 1.2, 1 / 1.2);
+}
+
 void App::keyPressEvent(QKeyEvent *event) {
     if (event->key() == Qt::Key_Escape) {
         close();
@@ -98,16 +124,9 @@ void App::keyPressEvent(QKeyEvent *event) {
         settings_->show();
         settings_->activateWindow();
     } else if (event->key() == Qt::Key_Plus || event->key() == Qt::Key_Equal) {
-        if (cartesian_screen_active_ && scale < 3) {
-            scale += 0.1;
-            cartesian_canvas_->scale(scale, scale);
-        }
+        zoomIn();
     } else if (event->key() == Qt::Key_Minus) {
-        std::cout << scale << std::endl;
-        if (cartesian_screen_active_ && scale > 0.4) {
-            scale -= 0.1;
-            cartesian_canvas_->scale(scale, scale);
-        }
+        zoomOut();
     }
 }
 
@@ -126,6 +145,9 @@ void App::setAvlScreen() {
 }
 
 void App::setRbScreen() {
+    if (!Rb_tree_) {
+        Rb_tree_ = new RBTree();
+    }
     splay_screen_->hide();
     avl_screen_->hide();
     cartesian_screen_->hide();
@@ -196,6 +218,17 @@ void App::addNodes() {
             ++i;
         }
         avl_canvas_->DrawAVLTree(Avl_tree_);
+    } else if (rb_screen_active_) {
+        int cnt = line_edit_->text().toInt();
+        for (int i = 0; i < cnt;) {
+            int64_t key = rnd();
+            if (Rb_tree_->search(key) != nullptr) {
+                continue;
+            }
+            Rb_tree_->insert(key);
+            ++i;
+        }
+        rb_canvas_->DrawRBTree(Rb_tree_);
     }
 }
 
@@ -209,7 +242,7 @@ void App::deleteNode(int x, int y) {
         Avl_tree_->remove(key);
         avl_canvas_->DrawAVLTree(Avl_tree_);
     } else if (cartesian_screen_active_) {
-        CartesianNode* node = Cartesian_tree_->find(x, y);
+        CartesianNode *node = Cartesian_tree_->find(x, y);
         if (!node) {
             return;
         }
@@ -217,7 +250,7 @@ void App::deleteNode(int x, int y) {
         Cartesian_tree_->remove(key);
         cartesian_canvas_->DrawCartesianTree(Cartesian_tree_);
     } else if (splay_screen_active_) {
-        Node* node = ::find(Splay_tree_, x, y);
+        Node *node = ::find(Splay_tree_, x, y);
         if (!node) {
             return;
         }
@@ -225,6 +258,42 @@ void App::deleteNode(int x, int y) {
         del_splay(Splay_tree_, key);
         splay_canvas_->DrawSplayTree(Splay_tree_);
     } else if (rb_screen_active_) {
-
+        Node *node = Rb_tree_->find(x, y);
+        if (!node) {
+            return;
+        }
+        int64_t key = node->val;
+        Rb_tree_->remove(key);
+        rb_canvas_->DrawRBTree(Rb_tree_);
     }
 }
+
+void App::addNode() {
+    if (cartesian_screen_active_) {
+        int64_t key = line_edit_2_->text().toInt();
+        if (!Cartesian_tree_->exists(key)) {
+            Cartesian_tree_->insert(key);
+            cartesian_canvas_->DrawCartesianTree(Cartesian_tree_);
+        }
+    } else if (splay_screen_active_) {
+        int64_t key = line_edit_2_->text().toInt();
+        if (!splay_find(Splay_tree_, key)) {
+            add_splay(Splay_tree_, key);
+            splay_canvas_->DrawSplayTree(Splay_tree_);
+        }
+    } else if (avl_screen_active_) {
+        int64_t key = line_edit_2_->text().toInt();
+        if (Avl_tree_->search(key) == nullptr) {
+            Avl_tree_->insert(key);
+            avl_canvas_->DrawAVLTree(Avl_tree_);
+        }
+    } else if (rb_screen_active_) {
+        int64_t key = line_edit_2_->text().toInt();
+        if (Rb_tree_->search(key) == nullptr) {
+            Rb_tree_->insert(key);
+            rb_canvas_->DrawRBTree(Rb_tree_);
+        }
+    }
+}
+
+

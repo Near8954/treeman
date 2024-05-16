@@ -57,7 +57,6 @@ void Canvas::DrawCartesianTree(int64_t x, int64_t y, CartesianNode *T) {
 }
 
 
-
 void Canvas::DrawSplayTree(int64_t x, int64_t y, Node *T) {
     if (!T) {
         return;
@@ -138,11 +137,56 @@ void Canvas::DrawAVLTree(int64_t x, int64_t y, Node *T) {
     DrawAVLNode(x, y, T);
 }
 
+
 void Canvas::mousePressEvent(QMouseEvent *event) {
     if (event->button() == Qt::LeftButton) {
         auto coords = this->mapToScene(event->pos());
         emit mouseClicked((int) coords.x(), (int) coords.y());
     }
     QGraphicsView::mousePressEvent(event);
+}
+
+void Canvas::DrawRBNode(int64_t x, int64_t y, Node *Node) {
+    auto node = new QGraphicsEllipseItem(x, y, 80, 80);
+    if (!Node->color) {
+        node->setBrush(QBrush(Qt::white, Qt::SolidPattern));
+    } else {
+        node->setBrush(QBrush(Qt::red, Qt::SolidPattern));
+    }
+    QString text_s_val = QString::fromStdString(std::to_string(Node->val));
+    auto text = new QGraphicsTextItem(text_s_val);
+    text->setFont(QFont("Calibri", std::min(13, 89 / text_s_val.size())));
+    text->setPos(x, y + 20);
+    scene->addItem(node);
+    scene->addItem(text);
+}
+
+void Canvas::DrawRBTree(RBTree *T) {
+    scene->clear();
+    if (T) {
+        DrawRBTree(0, 0, T->get_root());
+    }
+}
+
+void Canvas::DrawRBTree(int64_t x, int64_t y, Node *T) {
+    if (!T) {
+        return;
+    }
+    fix_size(T);
+    if (T->right) {
+        T->right->x = x + get_size(T->right->left) * 100 + 80;
+        T->right->y = y + 100 + 40;
+        scene->addLine(x + 40, y + 40, x + get_size(T->right->left) * 100 + 80 + 40, y + 100 + 40);
+        DrawRBTree(x + get_size(T->right->left) * 100 + 80, y + 100, T->right);
+    }
+    if (T->left) {
+        T->left->x = x - (get_size(T->left->right) * 100 + 80);
+        T->left->y = y + 100 + 40;
+        scene->addLine(x + 40, y + 40, x - (get_size(T->left->right) * 100 + 80) + 40, y + 100 + 40);
+        DrawRBTree(x - (get_size(T->left->right) * 100 + 80), y + 100, T->left);
+    }
+    T->x = x;
+    T->y = y;
+    DrawRBNode(x, y, T);
 }
 

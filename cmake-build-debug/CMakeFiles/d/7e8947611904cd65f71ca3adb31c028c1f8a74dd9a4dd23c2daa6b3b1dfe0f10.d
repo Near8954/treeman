@@ -35,6 +35,8 @@ treeman_autogen/timestamp: \
   /home/near/CLionProjects/treeman/src/trees/CartesianTree/CartesianTree.cpp \
   /home/near/CLionProjects/treeman/src/trees/CartesianTree/CartesianTree.h \
   /home/near/CLionProjects/treeman/src/trees/Node.h \
+  /home/near/CLionProjects/treeman/src/trees/RBTree/RBTree.cpp \
+  /home/near/CLionProjects/treeman/src/trees/RBTree/RBTree.h \
   /home/near/CLionProjects/treeman/src/trees/SplayTree/SplayTree.cpp \
   /home/near/CLionProjects/treeman/src/trees/SplayTree/SplayTree.h \
   /usr/include/asm-generic/errno-base.h \

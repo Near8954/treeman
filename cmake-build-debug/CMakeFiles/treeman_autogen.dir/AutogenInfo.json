@@ -116,6 +116,12 @@
 			null
 		],
 		[
+			"/home/near/CLionProjects/treeman/src/trees/RBTree/RBTree.h",
+			"MU",
+			"Q5ZF5ZZNRL/moc_RBTree.cpp",
+			null
+		],
+		[
 			"/home/near/CLionProjects/treeman/src/trees/SplayTree/SplayTree.h",
 			"MU",
 			"JHEXESI7G5/moc_SplayTree.cpp",
@@ -191,6 +197,11 @@
 		],
 		[
 			"/home/near/CLionProjects/treeman/src/trees/CartesianTree/CartesianTree.cpp",
+			"MU",
+			null
+		],
+		[
+			"/home/near/CLionProjects/treeman/src/trees/RBTree/RBTree.cpp",
 			"MU",
 			null
 		],

@@ -105,6 +105,14 @@ build CMakeFiles/treeman.dir/src/trees/AvlTree/AvlTree.cpp.o: CXX_COMPILER__tree
   OBJECT_DIR = CMakeFiles/treeman.dir
   OBJECT_FILE_DIR = CMakeFiles/treeman.dir/src/trees/AvlTree
 
+build CMakeFiles/treeman.dir/src/trees/RBTree/RBTree.cpp.o: CXX_COMPILER__treeman_unscanned_Debug /home/near/CLionProjects/treeman/src/trees/RBTree/RBTree.cpp || cmake_object_order_depends_target_treeman
+  DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB
+  DEP_FILE = CMakeFiles/treeman.dir/src/trees/RBTree/RBTree.cpp.o.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always -fPIC
+  INCLUDES = -isystem /home/near/CLionProjects/treeman/cmake-build-debug/treeman_autogen/include -isystem /usr/include/x86_64-linux-gnu/qt5 -isystem /usr/include/x86_64-linux-gnu/qt5/QtCore -isystem /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -isystem /usr/include/x86_64-linux-gnu/qt5/QtGui -isystem /usr/include/x86_64-linux-gnu/qt5/QtWidgets
+  OBJECT_DIR = CMakeFiles/treeman.dir
+  OBJECT_FILE_DIR = CMakeFiles/treeman.dir/src/trees/RBTree
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target treeman
@@ -113,7 +121,7 @@ build CMakeFiles/treeman.dir/src/trees/AvlTree/AvlTree.cpp.o: CXX_COMPILER__tree
 #############################################
 # Link the executable treeman
 
-build treeman: CXX_EXECUTABLE_LINKER__treeman_Debug CMakeFiles/treeman.dir/treeman_autogen/mocs_compilation.cpp.o CMakeFiles/treeman.dir/main.cpp.o CMakeFiles/treeman.dir/src/interface/App/App.cpp.o CMakeFiles/treeman.dir/src/interface/Canvas/Canvas.cpp.o CMakeFiles/treeman.dir/src/trees/CartesianTree/CartesianTree.cpp.o CMakeFiles/treeman.dir/src/trees/SplayTree/SplayTree.cpp.o CMakeFiles/treeman.dir/src/trees/AvlTree/AvlTree.cpp.o | /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.15.3 /usr/lib/x86_64-linux-gnu/libQt5Gui.so.5.15.3 /usr/lib/x86_64-linux-gnu/libQt5Core.so.5.15.3 || treeman_autogen treeman_autogen_timestamp_deps
+build treeman: CXX_EXECUTABLE_LINKER__treeman_Debug CMakeFiles/treeman.dir/treeman_autogen/mocs_compilation.cpp.o CMakeFiles/treeman.dir/main.cpp.o CMakeFiles/treeman.dir/src/interface/App/App.cpp.o CMakeFiles/treeman.dir/src/interface/Canvas/Canvas.cpp.o CMakeFiles/treeman.dir/src/trees/CartesianTree/CartesianTree.cpp.o CMakeFiles/treeman.dir/src/trees/SplayTree/SplayTree.cpp.o CMakeFiles/treeman.dir/src/trees/AvlTree/AvlTree.cpp.o CMakeFiles/treeman.dir/src/trees/RBTree/RBTree.cpp.o | /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.15.3 /usr/lib/x86_64-linux-gnu/libQt5Gui.so.5.15.3 /usr/lib/x86_64-linux-gnu/libQt5Core.so.5.15.3 || treeman_autogen treeman_autogen_timestamp_deps
   FLAGS = -g
   LINK_LIBRARIES = /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.15.3  /usr/lib/x86_64-linux-gnu/libQt5Gui.so.5.15.3  /usr/lib/x86_64-linux-gnu/libQt5Core.so.5.15.3
   OBJECT_DIR = CMakeFiles/treeman.dir
